@@ -1,7 +1,8 @@
-// import { useState, useEffect } from 'react';
+import { line } from 'p5';
+import { useEffect } from 'react';
 import useFetch from '../useFetch';
 
-const Home = () => {
+const Characters = () => {
   const {
     data: batmanVolumeData,
     loading,
@@ -17,12 +18,13 @@ const Home = () => {
       {Error && <h3>{errorMessage}</h3>}
       {batmanVolumeData && (
         <p>
-          This application is based on The Batman comic book series{' '}
-          {batmanVolumeData.results.deck}
+          {batmanVolumeData.results.characters.map((char) => (
+            <li key={char.id}>{char.name}</li>
+          ))}
         </p>
       )}
     </div>
   );
 };
 
-export default Home;
+export default Characters;
