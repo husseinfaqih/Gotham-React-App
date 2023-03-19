@@ -19,7 +19,6 @@ const CharacterDetails = () => {
           apiDetailUrl={characterDataId.results[0].api_detail_url}
         />
       )}
-      <p>Hello</p>
     </div>
   );
 };

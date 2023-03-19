@@ -1,4 +1,3 @@
-import { line } from 'p5';
 import { useEffect } from 'react';
 import useFetch from '../useFetch';
 import CharacterDisplay from './CharacterDisplay';

@@ -11,7 +11,7 @@ const CharacterDisplay = ({ name, link }) => {
         <p>{name}</p>
         {loading && <h3>Loading .. </h3>}
         {Error && <h3>{errorMessage}</h3>}
-        {characterData && <p>{characterData.results.deck}</p>}
+        {/* {characterData && <p>{characterData.results.deck}</p>} */}
         {characterData && (
           <img src={characterData.results.image.thumb_url} alt="" />
         )}
