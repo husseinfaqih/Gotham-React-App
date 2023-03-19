@@ -6,9 +6,7 @@ const Home = () => {
     data: batmanVolumeData,
     loading,
     errorMessage,
-  } = useFetch(
-    'https://comicvine.gamespot.com/api/volume/4050-796/?api_key=8cf3fa2bf32f7ac2d20c56da226384e401d78a15&format=json',
-  );
+  } = useFetch('https://comicvine.gamespot.com/api/volume/4050-796/');
 
   return (
     <div>

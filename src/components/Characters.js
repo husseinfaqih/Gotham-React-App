@@ -1,15 +1,14 @@
 import { line } from 'p5';
 import { useEffect } from 'react';
 import useFetch from '../useFetch';
+import CharacterDisplay from './CharacterDisplay';
 
 const Characters = () => {
   const {
     data: batmanVolumeData,
     loading,
     errorMessage,
-  } = useFetch(
-    'https://comicvine.gamespot.com/api/volume/4050-796/?api_key=8cf3fa2bf32f7ac2d20c56da226384e401d78a15&format=json',
-  );
+  } = useFetch('https://comicvine.gamespot.com/api/volume/4050-796/');
 
   return (
     <div>
@@ -17,11 +16,15 @@ const Characters = () => {
       {loading && <h3>Loading .. </h3>}
       {Error && <h3>{errorMessage}</h3>}
       {batmanVolumeData && (
-        <p>
-          {batmanVolumeData.results.characters.map((char) => (
-            <li key={char.id}>{char.name}</li>
+        <div>
+          {batmanVolumeData.results.characters.slice(0, 20).map((char) => (
+            <CharacterDisplay
+              key={char.id}
+              name={char.name}
+              link={char.api_detail_url}
+            />
           ))}
-        </p>
+        </div>
       )}
     </div>
   );
