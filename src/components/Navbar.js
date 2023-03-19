@@ -1,6 +1,10 @@
 import { Link } from 'react-router-dom';
+import { CharacterIDContext } from './CharacterIDContext';
+import { useContext } from 'react';
 
 const Navbar = () => {
+  const { favorite, setFavorite } = useContext(CharacterIDContext);
+
   return (
     <div className="navbar">
       <h4>Gotham City</h4>
@@ -12,7 +16,7 @@ const Navbar = () => {
           <Link to="/characters">Characters</Link>
         </li>
         <li className="navbar-link">
-          <Link to="/favorite">Favorites</Link>
+          <Link to="/favorite">Favorites {favorite.length} </Link>
         </li>
       </div>
     </div>

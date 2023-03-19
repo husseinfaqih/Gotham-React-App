@@ -1,5 +1,10 @@
+import { CharacterIDContext } from './CharacterIDContext';
+import { useContext } from 'react';
+
 const Favorite = () => {
-  return <div>favorite prink link</div>;
+  // const value = useContext(CharacterIDContext);
+
+  return <div>favorite prink link is </div>;
 };
 
 export default Favorite;

@@ -1,27 +1,55 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import useFetch from '../useFetch';
 import CharacterDisplay from './CharacterDisplay';
+import { AiOutlineLike, AiFillLike } from 'react-icons/ai';
+import { CharacterIDContext } from './CharacterIDContext';
+import { useContext } from 'react';
 
 const Characters = () => {
+  // const { favorite, setFavorite } = useContext(CharacterIDContext);
+  // const [icon, setIcon] = useState(false);
   const {
     data: batmanVolumeData,
     loading,
     errorMessage,
   } = useFetch('https://comicvine.gamespot.com/api/volume/4050-796/');
 
+  // const likeIcon = () => {
+  //   if (!icon) {
+  //     setIcon(true);
+  //   } else {
+  //     setIcon(false);
+  //   }
+  // };
+
   return (
     <div>
       <h2>Homepage</h2>
+
       {loading && <h3>Loading .. </h3>}
       {Error && <h3>{errorMessage}</h3>}
       {batmanVolumeData && (
         <div>
           {batmanVolumeData.results.characters.slice(0, 20).map((char) => (
-            <CharacterDisplay
-              key={char.id}
-              name={char.name}
-              link={char.api_detail_url}
-            />
+            <div key={char.id}>
+              {/* {!icon && (
+                <AiOutlineLike
+                  onClick={() => {
+                    setFavorite(char.id);
+                    likeIcon();
+                    // console.log(favorite);
+                  }}
+                />
+              )}
+              {icon && (
+                <AiFillLike
+                  onClick={() => {
+                    likeIcon();
+                  }}
+                />
+              )} */}
+              <CharacterDisplay name={char.name} link={char.api_detail_url} />
+            </div>
           ))}
         </div>
       )}
