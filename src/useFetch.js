@@ -6,9 +6,6 @@ const useFetch = (url) => {
   const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
-    // fetch(
-    //   url + '?api_key=8cf3fa2bf32f7ac2d20c56da226384e401d78a15&format=json',
-    // );
     fetch(`${url}?api_key=${process.env.REACT_APP_API_KEY}&format=json`)
       .then((res) => {
         if (!res.ok) {

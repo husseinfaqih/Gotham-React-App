@@ -10,7 +10,7 @@ const CharacterFullData = ({ apiDetailUrl }) => {
 
   return (
     <div>
-      <LikeButton id={characterFullData.results.id} />
+      {characterFullData && <LikeButton id={characterFullData.results.id} />}
       {loading && <h3>Loading .. </h3>}
       {errorMessage && <h3>{errorMessage}</h3>}
       {characterFullData && <div> {characterFullData.results.name}</div>}

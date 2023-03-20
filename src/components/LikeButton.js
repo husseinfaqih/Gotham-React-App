@@ -1,6 +1,6 @@
 import { AiOutlineLike, AiFillLike } from 'react-icons/ai';
 import { CharacterIDContext } from './CharacterIDContext';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 const LikeButton = ({ id }) => {
   const [fillIcon, setFillIcon] = useState(false);
@@ -9,12 +9,22 @@ const LikeButton = ({ id }) => {
   const likeIcon = () => {
     if (!fillIcon) {
       setFillIcon(true);
-      setFavorite([...favorite, id]);
+      setFavorite([...new Set([...favorite, id])]);
     } else {
       setFillIcon(false);
       setFavorite(favorite.filter((x) => x !== id));
     }
   };
+
+  const checkLikes = () => {
+    favorite.forEach((CharId) => {
+      if (CharId === id) {
+        setFillIcon(true);
+      }
+    });
+  };
+
+  useEffect(checkLikes, []);
 
   return (
     <div>
