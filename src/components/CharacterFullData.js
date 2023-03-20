@@ -1,4 +1,5 @@
 import useFetch from '../useFetch';
+import LikeButton from './LikeButton';
 
 const CharacterFullData = ({ apiDetailUrl }) => {
   const {
@@ -8,7 +9,8 @@ const CharacterFullData = ({ apiDetailUrl }) => {
   } = useFetch(apiDetailUrl);
 
   return (
-    <>
+    <div>
+      <LikeButton id={characterFullData.results.id} />
       {loading && <h3>Loading .. </h3>}
       {errorMessage && <h3>{errorMessage}</h3>}
       {characterFullData && <div> {characterFullData.results.name}</div>}
@@ -21,14 +23,7 @@ const CharacterFullData = ({ apiDetailUrl }) => {
       )}
 
       {characterFullData && <div> {characterFullData.results.deck}</div>}
-      {/* {characterFullData && (
-        <div>
-          {characterFullData.results.powers.map((power) => (
-            <p>{power.name}</p>
-          ))}
-        </div>
-      )} */}
-    </>
+    </div>
   );
 };
 
