@@ -35,6 +35,7 @@ const CharacterDisplay = ({ name, link }) => {
       {icon && characterData && (
         <AiFillLike
           onClick={() => {
+            setFavorite(favorite.filter((x) => x !== characterData.results.id));
             likeIcon();
           }}
         />

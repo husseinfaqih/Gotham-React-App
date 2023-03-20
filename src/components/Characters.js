@@ -6,21 +6,11 @@ import { CharacterIDContext } from './CharacterIDContext';
 import { useContext } from 'react';
 
 const Characters = () => {
-  // const { favorite, setFavorite } = useContext(CharacterIDContext);
-  // const [icon, setIcon] = useState(false);
   const {
     data: batmanVolumeData,
     loading,
     errorMessage,
   } = useFetch('https://comicvine.gamespot.com/api/volume/4050-796/');
-
-  // const likeIcon = () => {
-  //   if (!icon) {
-  //     setIcon(true);
-  //   } else {
-  //     setIcon(false);
-  //   }
-  // };
 
   return (
     <div>
@@ -32,22 +22,6 @@ const Characters = () => {
         <div>
           {batmanVolumeData.results.characters.slice(0, 20).map((char) => (
             <div key={char.id}>
-              {/* {!icon && (
-                <AiOutlineLike
-                  onClick={() => {
-                    setFavorite(char.id);
-                    likeIcon();
-                    // console.log(favorite);
-                  }}
-                />
-              )}
-              {icon && (
-                <AiFillLike
-                  onClick={() => {
-                    likeIcon();
-                  }}
-                />
-              )} */}
               <CharacterDisplay name={char.name} link={char.api_detail_url} />
             </div>
           ))}
