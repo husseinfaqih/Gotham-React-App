@@ -6,6 +6,8 @@ import { CharacterIDContext } from './CharacterIDContext';
 import { useContext } from 'react';
 
 const Characters = () => {
+  const [visible, setVisible] = useState(10);
+
   const {
     data: batmanVolumeData,
     loading,
@@ -20,13 +22,16 @@ const Characters = () => {
       {Error && <h3>{errorMessage}</h3>}
       {batmanVolumeData && (
         <div>
-          {batmanVolumeData.results.characters.slice(0, 20).map((char) => (
+          {batmanVolumeData.results.characters.slice(0, visible).map((char) => (
             <div key={char.id}>
               <CharacterDisplay name={char.name} link={char.api_detail_url} />
             </div>
           ))}
         </div>
       )}
+      <button onClick={() => setVisible((previousValue) => previousValue + 10)}>
+        LOAD MORE
+      </button>
     </div>
   );
 };

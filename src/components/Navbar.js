@@ -18,6 +18,9 @@ const Navbar = () => {
         <li className="navbar-link">
           <Link to="/favorite">Favorites {favorite.length} </Link>
         </li>
+        <li className="navbar-link">
+          <Link to="/RandomCharacter">Random Character</Link>
+        </li>
       </div>
     </div>
   );
