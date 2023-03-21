@@ -8,15 +8,31 @@ const CharacterDisplay = ({ name, link }) => {
 
   return (
     <div>
-      <p>{name}</p>
-      {loading && <h3>Loading .. </h3>}
+      {loading && (
+        <h3
+          style={{
+            color: 'white',
+            fontFamily: 'Bangers',
+            fontSize: '25px',
+            letterSpacing: '2px',
+          }}
+        >
+          Loading ..{' '}
+        </h3>
+      )}
       {Error && <h3>{errorMessage}</h3>}
-      {characterData && <LikeButton id={characterData.results.id} />}
+
       <Link to={characterData && `/characters/${characterData.results.id}`}>
+        <p className="characters-name">{name}</p>
         {characterData && (
-          <img src={characterData.results.image.thumb_url} alt="" />
+          <img
+            className="characters-img"
+            src={characterData.results.image.super_url}
+            alt=""
+          />
         )}
       </Link>
+      {characterData && <LikeButton id={characterData.results.id} />}
     </div>
   );
 };

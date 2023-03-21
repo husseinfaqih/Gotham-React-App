@@ -30,6 +30,8 @@ const LikeButton = ({ id }) => {
     <div>
       {!fillIcon && (
         <AiOutlineLike
+          size={40}
+          className="characters-not-liked-button"
           onClick={() => {
             likeIcon();
           }}
@@ -37,6 +39,8 @@ const LikeButton = ({ id }) => {
       )}
       {fillIcon && (
         <AiFillLike
+          size={40}
+          className="characters-liked-button"
           onClick={() => {
             likeIcon();
           }}

@@ -13,19 +13,18 @@ const Home = () => {
       {loading && (
         <div className="home-container">
           <img
-            src="https://media3.giphy.com/media/B4jfJqiIxvU08/giphy.gif?cid=ecf05e47tji3a1czna1nd07eh91d5rci1hgpzl7ihvfybbnv&rid=giphy.gif&ct=g"
+            src="https://media4.giphy.com/media/cs06FSkGD2ue4/giphy.gif?cid=ecf05e47wu3a06bugxa6ufq4owkpevjtufaalnkt8gnqt5su&rid=giphy.gif&ct=g"
             alt="Loading..."
           />
           <p className="home-mini-title">
-            While Batman is suiting up, we're fetching the data. Thanks for
-            waiting!
+            "The Batcave is processing your request."
           </p>
         </div>
       )}
       {errorMessage && (
         <div className="home-container">
           <img
-            src="https://media1.giphy.com/media/11mkwYN8k9v5T2/giphy.gif?cid=ecf05e47tji3a1czna1nd07eh91d5rci1hgpzl7ihvfybbnv&rid=giphy.gif&ct=g"
+            src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjE5NDBlYzVmNTc1ZmNjZWEyZmI3YmZmYjMzZDRjYTc3OTJiNGU1MSZjdD1n/Sid4QgwDxJ8l2/giphy.gif"
             alt="Loading..."
           />
           <p className="home-mini-title">

@@ -3,7 +3,7 @@ import { CharacterIDContext } from './CharacterIDContext';
 import { useContext } from 'react';
 
 const Navbar = () => {
-  const { favorite, setFavorite } = useContext(CharacterIDContext);
+  const { favorite } = useContext(CharacterIDContext);
 
   return (
     <div className="navbar">

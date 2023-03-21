@@ -1,4 +1,3 @@
-import { useReducer } from 'react';
 import useFetch from '../useFetch';
 import CharacterFullData from './CharacterFullData';
 
@@ -10,11 +9,27 @@ const RandomCharacter = () => {
   } = useFetch('https://comicvine.gamespot.com/api/volume/4050-796/');
 
   return (
-    <div>
-      <h2>Homepage</h2>
-
-      {loading && <h3>Loading .. </h3>}
-      {Error && <h3>{errorMessage}</h3>}
+    <div className="characters-container">
+      <h2 className="home-title">Here is your Random Gotham character</h2>
+      <button
+        className="reload-random"
+        onClick={() => window.location.reload()}
+      >
+        RELOAD!!!
+      </button>
+      {loading && (
+        <h3
+          style={{
+            fontFamily: 'Bangers',
+            fontSize: '35px',
+            letterSpacing: '2px',
+            color: 'black',
+          }}
+        >
+          Loading ..
+        </h3>
+      )}
+      {errorMessage && <h3>{errorMessage}</h3>}
       {batmanVolumeData && (
         <div>
           <CharacterFullData
@@ -26,7 +41,6 @@ const RandomCharacter = () => {
               ].api_detail_url
             }
           />
-          <button onClick={() => window.location.reload()}>RELOAD!!!</button>
         </div>
       )}
     </div>

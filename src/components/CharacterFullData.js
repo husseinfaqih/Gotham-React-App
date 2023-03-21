@@ -1,7 +1,7 @@
 import useFetch from '../useFetch';
 import LikeButton from './LikeButton';
 
-const CharacterFullData = ({ apiDetailUrl }) => {
+const CharacterFullData = ({ apiDetailUrl, name }) => {
   const {
     data: characterFullData,
     loading,
@@ -9,20 +9,51 @@ const CharacterFullData = ({ apiDetailUrl }) => {
   } = useFetch(apiDetailUrl);
 
   return (
-    <div>
-      {characterFullData && <LikeButton id={characterFullData.results.id} />}
-      {loading && <h3>Loading .. </h3>}
-      {errorMessage && <h3>{errorMessage}</h3>}
-      {characterFullData && <div> {characterFullData.results.name}</div>}
-      {characterFullData && (
-        <img src={characterFullData.results.image.thumb_url} alt="" />
+    <div className="character-detail-container">
+      {loading && (
+        <h3
+          style={{
+            fontFamily: 'Bangers',
+            fontSize: '35px',
+            letterSpacing: '2px',
+            color: 'black',
+          }}
+        >
+          Here Comes {name} ..
+        </h3>
       )}
-      {characterFullData && <div> {characterFullData.results.birth}</div>}
+      {errorMessage && <h3>{errorMessage}</h3>}
       {characterFullData && (
-        <div> Real Name: {characterFullData.results.real_name}</div>
+        <div className="character-detail-left">
+          <img
+            className="character-detail-image"
+            src={characterFullData.results.image.super_url}
+            alt=""
+          />
+        </div>
       )}
 
-      {characterFullData && <div> {characterFullData.results.deck}</div>}
+      {characterFullData && (
+        <div className="character-detail-right">
+          <LikeButton id={characterFullData.results.id} />
+          <div className="character-detail-name">
+            {' '}
+            {characterFullData.results.name}
+          </div>
+          <div className="character-detail-birth">
+            {' '}
+            {characterFullData.results.birth}
+          </div>
+          <div className="character-detail-real-name">
+            {' '}
+            Real Name: {characterFullData.results.real_name}
+          </div>
+          <div className="character-detail-deck">
+            {' '}
+            {characterFullData.results.deck}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
