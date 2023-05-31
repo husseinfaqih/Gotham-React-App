@@ -18,6 +18,7 @@ const Favorite = () => {
   return (
     <div className="favorite-container">
       <h2 className="home-title">Favorite Characters</h2>
+
       {loading && (
         <div className="home-container">
           <img

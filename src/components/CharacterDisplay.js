@@ -20,7 +20,7 @@ const CharacterDisplay = ({ name, link }) => {
           Loading ..{' '}
         </h3>
       )}
-      {Error && <h3>{errorMessage}</h3>}
+      {errorMessage && <h3>{errorMessage}</h3>}
 
       <Link to={characterData && `/characters/${characterData.results.id}`}>
         <p className="characters-name">{name}</p>
