@@ -1,4 +1,4 @@
-# The Gotham-app-react
+# The Gotham-React-App
 
 This is a React application that displays information about **Gotham City characters** :boom: :boom: :boom: , with around **1000 characters** from the **Batman Volume I comic book series. The Batman comic book series started in 1940 and ran until 2011, consisting of 716 issues**.
 
